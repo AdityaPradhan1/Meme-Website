@@ -1,0 +1,161 @@
+/* reseting css styles */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+pre, form, fieldset, input, textarea, p, blockquote, th, td { 
+	padding: 0;
+	margin: 0;
+	}
+img { 
+	border: 0;
+	}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+ol, ul {
+	list-style: none;
+	}
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-weight: normal;
+	font-style: normal;
+	}
+caption, th {
+	text-align: left;
+	}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	font-size: 100%;
+	}
+
+/* css begins */
+body{
+    background-color: #c9ced3;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#heading{
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-color: black;
+	color: white;
+	font-size: 25px;
+    text-align: center;
+    padding: 0px ;
+}
+
+#modal-memes{
+    padding-top: 100px;
+    width: 50%;
+    margin: auto; 
+}
+.open-button {
+	background-color: black	;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+	position: fixed;
+	bottom: 23px;
+	right: 28px;
+	width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	border: 3px solid #f1f1f1;
+	z-index: 9;
+	width: 300px;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+	max-width: 300px;
+	padding: 10px;
+	background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom:10px;
+	opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+	background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+  }
+
+#view-memes{
+	margin-top: 30px;
+}
+
+.memes{
+	/* background-color: #a4abaf; */
+	width: 90%;
+    margin: auto;
+}
+.meme-out{
+	background-color: whitesmoke;
+	margin-bottom: 50px;
+	width: 700px;
+	height: 650px;
+	justify-content: center;
+	border-radius: 10px;
+	box-shadow: 0 5px 5px 0px rgb(168, 167, 167);
+  -moz-box-shadow:  0 5px 5px 0px rgb(168, 167, 167);
+  -webkit-box-shadow:  0 5px 5px 0pxrgb(168, 167, 167);
+  -o-box-shadow:  0 5px 5px 0px rgb(168, 167, 167);
+  -ms-box-shadow:  0 5px 5px 0pxrgb(168, 167, 167);
+}
+.meme{
+	width: 90%;
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+	font-weight: 900;
+}
+.meme-img{
+	height: 500px;
+	width: 600px;
+	padding: 20px;
+}
+
+.meme-caption{
+	margin-top: 120px;
+	text-align: center;
+	font-size: 40px;
+	font-family: 'Lobster', cursive;
+}
+.meme-name{
+	margin-left:  40px;
+	font-size: large;
+}
+

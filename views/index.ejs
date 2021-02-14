@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>MY APP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    
+    <div id="heading"> 
+      <h1> XMEME</h1>      
+    </div>
+
+    <div id="modal-memes">
+      
+
+      <div id="view-memes">
+        <h1>Latest Memes</h1>
+        <ul class="memes">
+            <% for(var i = memes.length-1; i >=0 && i>memes.length-100 ; i--) {%>
+              <li class="meme-out">
+                <div class="meme">
+                  <!-- Output name from the iterated quote object -->
+                  
+                  <!-- Output quote from the iterated quote object -->
+                  <span class="meme-caption"><strong><%= memes[i].caption %></strong></span>
+                  <span class="meme-url"><img class="meme-img" src="<%= memes[i].url %>" alt="Not a valid Meme"></span><br>
+                  <ul>
+                    <li style="float:left">
+                      <span class="meme-name">Made by:<i><%= memes[i].name %></i></span><br>
+                      </li>
+                    <li style="float:right; margin-right:20px">
+                      <div class="update-memes">
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal-<%= memes[i]._id%>"><i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                      
+                        <!-- Modal -->
+                          <div class="modal fade" id="myModal-<%= memes[i]._id%>" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-body">
+                                  <form action="/memes/<%= memes[i]._id %>?_method=PATCH" method="POST">
+                                    <h3>Update Meme</h3>  
+                                    <input type="hidden" placeholder="name" name="name" value="<%= memes[i].name %>" readonly><br>
+                                    <input type="url" placeholder="url" name="url" value="<%= memes[i].url %>"><br>
+                                    <input type="text" placeholder="caption" name="caption" value="<%= memes[i].caption %>"><br>
+                                    <button id="update-button-<%= memes[i]._id%>">Update Meme</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </form>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    <button class="open-button" onclick="openForm()">Add Meme</button>
+
+    <div class="form-popup" id="myForm">
+      <form action="/memes" method="POST" class="form-container">
+        <h3>Create Meme</h3>
+        <%if (msg.length > 0) { %>
+          <span><%= msg %></span>
+          <% } %>
+        <input type="text" placeholder="name" name="name" required><br>
+        <input type="url" placeholder="url" name="url" required><br>
+        <input type="text" placeholder="caption" name="caption" required><br>
+        
+        <button type="submit" class="btn">Submit Meme</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+
+    <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+    <script>
+      function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+      
+        if (dots.style.display === "none") {
+          dots.style.display = "inline";
+          btnText.innerHTML = "Read more"; 
+          moreText.style.display = "none";
+        } else {
+          dots.style.display = "none";
+          btnText.innerHTML = "Read less"; 
+          moreText.style.display = "inline";
+        }
+      }
+      </script>
+      
+  </body>
+</html>
