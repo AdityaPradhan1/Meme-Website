@@ -179,12 +179,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Listen
     // ========================
     const isProduction = process.env.NODE_ENV === 'production'
-    const port = isProduction ? 7500 : 3000
+    const port = process.env.PORT || 3000;
     app.listen(port, function () {
       console.log(`listening on ${port}`)
     })
     console.log("XMEME HERE IN CONSOLE")
   })
+  .catch(console.error)
 //function to make mongodb id autoincrement and start from 1
 
 
