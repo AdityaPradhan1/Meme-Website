@@ -23,7 +23,7 @@
       
 
       <div id="view-memes">
-        <h1>Latest Memes</h1>
+        <h1 class="latest-memes">Latest Memes</h1>
         <ul class="memes">
             <% for(var i = memes.length-1; i >=0 && i>memes.length-100 ; i--) {%>
               <li class="meme-out">
@@ -40,23 +40,23 @@
                     <li style="float:right; margin-right:20px">
                       <div class="update-memes">
                         <!-- Trigger the modal with a button -->
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal-<%= memes[i]._id%>"><i class="fa fa-pencil" aria-hidden="true"></i>
+                        <button type="button" id="edit-btn" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal-<%= memes[i]._id%>"><i class="fa fa-pencil" id="edit-pencil" aria-hidden="true"></i>
                         </button>
                       
                         <!-- Modal -->
                           <div class="modal fade" id="myModal-<%= memes[i]._id%>" role="dialog">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog ">
                             
                               <!-- Modal content-->
                               <div class="modal-content">
                                 <div class="modal-body">
                                   <form action="/memes/<%= memes[i]._id %>?_method=PATCH" method="POST">
                                     <h3>Update Meme</h3>  
-                                    <input type="hidden" placeholder="name" name="name" value="<%= memes[i].name %>" readonly><br>
-                                    <input type="url" placeholder="url" name="url" value="<%= memes[i].url %>"><br>
-                                    <input type="text" placeholder="caption" name="caption" value="<%= memes[i].caption %>"><br>
+                                    <input type="hidden" placeholder="name" name="name" value="<%= memes[i].name %>" style="width: 70%;" readonly><br>
+                                    <input type="url" placeholder="url" name="url" value="<%= memes[i].url %>" style="width: 70%; margin-bottom: 10px;" required><br>
+                                    <input type="text" placeholder="caption" name="caption" value="<%= memes[i].caption %>" style="width: 70%; margin-bottom: 10px;" required><br>
                                     <button id="update-button-<%= memes[i]._id%>">Update Meme</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button"  data-dismiss="modal">Close</button>
                                   </form>
                                 </div>
                               </div>
@@ -97,24 +97,6 @@
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
-    </script>
-    <script>
-      function myFunction() {
-        var dots = document.getElementById("dots");
-        var moreText = document.getElementById("more");
-        var btnText = document.getElementById("myBtn");
-      
-        if (dots.style.display === "none") {
-          dots.style.display = "inline";
-          btnText.innerHTML = "Read more"; 
-          moreText.style.display = "none";
-        } else {
-          dots.style.display = "none";
-          btnText.innerHTML = "Read less"; 
-          moreText.style.display = "inline";
-        }
-      }
-      </script>
-      
+    </script>      
   </body>
 </html>

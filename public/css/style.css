@@ -40,13 +40,21 @@ body{
 	color: white;
 	font-size: 25px;
     text-align: center;
-    padding: 0px ;
+	padding: 0px ;
+	z-index: 5;
 }
 
 #modal-memes{
     padding-top: 100px;
-    width: 50%;
-    margin: auto; 
+    /* width: 50%;
+    margin: auto;  */
+}
+#view-memes{
+	/* padding: 0% 0%; */
+	margin: 0 auto;
+	width: 800px;
+	/* margin: auto;  */
+	
 }
 .open-button {
 	background-color: black	;
@@ -159,3 +167,41 @@ body{
 	font-size: large;
 }
 
+@media screen and (max-width: 760px){
+	#view-memes{
+		width: 100%;
+		margin-left: -2%;
+	}
+	.meme-out{
+		width: 350px;
+		height: 325px;
+	}
+	.meme-img{
+		height: 250px;
+		width: 300px;
+		padding: 20px;
+	}
+	.meme-caption{
+		font-size: 20px;
+	}
+	.meme-name{
+		font-size: small;
+	}
+	#edit-btn{
+		height: 8px;
+		/* margin-bottom: -50px; */
+	}
+	#edit-pencil{
+		
+		font-size: 10px;
+		position: absolute;
+		margin-left: -5px;
+		margin-top: -5px;
+	}
+	.open-button{
+		right: 11%;
+	}
+	.latest-memes{
+		margin-left: 15px;
+	}
+}
